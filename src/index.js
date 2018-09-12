@@ -10,21 +10,18 @@ const welcome = (question = '') => {
 
 const randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-const even = (score, user) => {
+const even = (score, user, number, realAnsver) => {
   if (score < 1) {
     console.log('Correct!');
     return console.log(`Congratulations, ${user}!`);
   }
-  const number = randomNumber(1, 100);
+  // const number = randomNumber(1, 100);
   console.log(`Question: ${number}`);
   const ansverUser = readlineSync.question('Your answer: ');
-  const realAnsver = number % 2 === 0 ? 'yes' : 'no';
+  // const realAnsver = number % 2 === 0 ? 'yes' : 'no';
 
-  if (number % 2 === 0 && (ansverUser !== realAnsver || ansverUser === 'no')) {
-    console.log(`${ansverUser} is wrong answer ;(. Correct answer was 'yes'.`);
-    return console.log(`Let's try again, ${user}!`);
-  } if (number % 2 !== 0 && (ansverUser !== realAnsver || ansverUser === 'yes')) {
-    console.log(`${ansverUser} is wrong answer ;(. Correct answer was 'no'.`);
+  if (ansverUser !== realAnsver) {
+    console.log(`${ansverUser} is wrong answer ;(. Correct answer was ${realAnsver}.`);
     return console.log(`Let's try again, ${user}!`);
   }
   const newScore = score - 1;
