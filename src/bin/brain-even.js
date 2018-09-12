@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import brainEven from '..';
+import brainGeneral from '..';
 
-brainEven(2, 'Answer "yes" if number even otherwise answer "no".');
+brainGeneral(2, 'Answer "yes" if number even otherwise answer "no".');

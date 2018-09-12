@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import brainEven from '..';
+import brainGeneral from '..';
 
-brainEven(1, '');
+brainGeneral(1, '');

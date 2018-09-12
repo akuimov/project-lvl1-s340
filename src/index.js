@@ -15,7 +15,7 @@ const even = (score, user) => {
     console.log('Correct!');
     return console.log(`Congratulations, ${user}!`);
   }
-  const number = randomNumber(0, 100);
+  const number = randomNumber(1, 100);
   console.log(`Question: ${number}`);
   const ansverUser = readlineSync.question('Your answer: ');
   const realAnsver = number % 2 === 0 ? 'yes' : 'no';
@@ -31,7 +31,7 @@ const even = (score, user) => {
   return even(newScore, user);
 };
 
-const brainEven = (order, description) => {
+const brainGeneral = (order, description) => {
   if (order === 1) {
     welcome(description);
   } else {
@@ -40,4 +40,4 @@ const brainEven = (order, description) => {
   }
 };
 
-export default brainEven;
+export default brainGeneral;
