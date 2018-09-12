@@ -8,33 +8,35 @@ const welcome = (question = '') => {
   return actual;
 };
 
-const randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
+// const randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-const even = (score, user, number, realAnsver) => {
+const even = (score, user, questionArg, realAnswerArg) => {
   if (score < 1) {
     console.log('Correct!');
     return console.log(`Congratulations, ${user}!`);
   }
   // const number = randomNumber(1, 100);
-  console.log(`Question: ${number}`);
+  console.log(questionArg);
+  const question = questionArg();
+  const realAnswer = realAnswerArg(question);
+  console.log(`Question: ${question}`);
   const ansverUser = readlineSync.question('Your answer: ');
   // const realAnsver = number % 2 === 0 ? 'yes' : 'no';
 
-  if (ansverUser !== realAnsver) {
-    console.log(`${ansverUser} is wrong answer ;(. Correct answer was ${realAnsver}.`);
+  if (ansverUser !== realAnswer) {
+    console.log(`${ansverUser} is wrong answer ;(. Correct answer was ${realAnswer}.`);
     return console.log(`Let's try again, ${user}!`);
   }
   const newScore = score - 1;
-  return even(newScore, user);
+  return even(newScore, user, questionArg, realAnswerArg);
 };
 
-const brainGeneral = (order, description) => {
+const brainGeneral = (order, description, score, question, realAnswer) => {
   if (order === 1) {
-    welcome(description);
-  } else {
-    const welcomeName = welcome(description);
-    even(3, welcomeName);
+    return welcome(description);
   }
+  const user = welcome(description);
+  return even(score, user, question, realAnswer);
 };
 
 export default brainGeneral;
