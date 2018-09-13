@@ -3,3 +3,5 @@
 [![Build Status](https://travis-ci.org/akuimov/project-lvl1-s340.svg?branch=master)](https://travis-ci.org/akuimov/project-lvl1-s340)
 
 [![asciicast](https://asciinema.org/a/5zdOKhXFmEqdbKB88lVWOAjL4.png)](https://asciinema.org/a/5zdOKhXFmEqdbKB88lVWOAjL4)
+
+[![asciicast](https://asciinema.org/a/j9jVsWuLzWYDeVFs7TgZh30Re.png)](https://asciinema.org/a/j9jVsWuLzWYDeVFs7TgZh30Re)

@@ -3,7 +3,7 @@ import brainGeneral from '..';
 const evenQuestion = () => {
   const randommNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
   const operators = '+-*';
-  return `${randommNum(1, 10)} ${operators[randommNum(0, 2)]} ${randommNum(1, 10)}`;
+  return `${randommNum(1, 10)} ${operators[randommNum(0, 3)]} ${randommNum(1, 10)}`;
 };
 
 const evenRealAnsver = (string) => {
