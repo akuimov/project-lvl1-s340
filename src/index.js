@@ -30,7 +30,7 @@ const even = (score, user, questionArg, realAnswerArg) => {
 };
 
 const brainGeneral = (order, description, score, question, realAnswer) => {
-  if (order === 1) {
+  if (order === 'welcome') {
     return welcome(description);
   }
   const user = welcome(description);

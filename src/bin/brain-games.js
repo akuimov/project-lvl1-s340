@@ -2,4 +2,4 @@
 
 import brainGeneral from '..';
 
-brainGeneral(1, '');
+brainGeneral('welcome', '');
