@@ -15,13 +15,11 @@ const even = (score, user, questionArg, realAnswerArg) => {
     console.log('Correct!');
     return console.log(`Congratulations, ${user}!`);
   }
-  // const number = randomNumber(1, 100);
-  console.log(questionArg);
+
   const question = questionArg();
   const realAnswer = realAnswerArg(question);
   console.log(`Question: ${question}`);
   const ansverUser = readlineSync.question('Your answer: ');
-  // const realAnsver = number % 2 === 0 ? 'yes' : 'no';
 
   if (ansverUser !== realAnswer) {
     console.log(`${ansverUser} is wrong answer ;(. Correct answer was ${realAnswer}.`);
