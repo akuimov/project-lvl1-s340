@@ -23,7 +23,6 @@ const gcd = (num1, num2) => {
 
 const evenRealAnsver = (string) => {
   const arr = string.split(' ');
-  console.log(arr);
   return gcd(+arr[0], +arr[1]);
 };
 
