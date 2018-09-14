@@ -5,23 +5,23 @@ const evenQuestion = () => {
   return `${randommNum(1, 10)} ${randommNum(1, 10)}`;
 };
 
-const item = (ar, num, divider) => {
-  if (num < 1) return divider;
-  if (ar % num === 0) divider.push(num);
-  return item(ar, num - 1, divider);
+const gcd = (num1, num2) => {
+  const numDividers = (num, n, divider) => {
+    if (n < 1) return divider;
+    if (num % n === 0) divider.push(n);
+    return numDividers(num, (n - 1), divider);
+  };
+  const num1Dividers = numDividers(num1, num1, []);
+  const num2Dividers = numDividers(num2, num2, []);
+  const generalDividers = num1Dividers.filter(x => num2Dividers.includes(x));
+  return `${Math.max(...generalDividers)}`;
 };
 
 const evenRealAnsver = (string) => {
   const arr = string.split(' ');
-  const dividerAr1 = item(arr[0], +arr[0], []);
-  const dividerAr2 = item(arr[1], +arr[1], []);
-  const general = dividerAr1.reduce((acc, x) => {
-    if (dividerAr2.includes(x)) acc.push(x);
-    return acc;
-  }, []);
-  return `${Math.max(...general)}`;
+  return gcd(arr[0], arr[1]);
 };
 
-const startGame = () => brainGeneral('', 'Find the greatest common divisor of given numbers.', 3, evenQuestion, evenRealAnsver);
+const startGame = () => brainGeneral('Find the greatest common divisor of given numbers.', 3, evenQuestion, evenRealAnsver);
 
 export default startGame;

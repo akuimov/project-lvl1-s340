@@ -29,8 +29,8 @@ const even = (score, user, questionArg, realAnswerArg) => {
   return even(newScore, user, questionArg, realAnswerArg);
 };
 
-const brainGeneral = (order, description, score, question, realAnswer) => {
-  if (order === 'welcome') {
+const brainGeneral = (description, score, question, realAnswer) => {
+  if (score === undefined) {
     return welcome(description);
   }
   const user = welcome(description);

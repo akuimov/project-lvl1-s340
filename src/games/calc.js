@@ -19,6 +19,6 @@ const evenRealAnsver = (string) => {
   return rezult;
 };
 
-const startGame = () => brainGeneral('', 'What is the result of the expression?', 3, evenQuestion, evenRealAnsver);
+const startGame = () => brainGeneral('What is the result of the expression?', 3, evenQuestion, evenRealAnsver);
 
 export default startGame;
