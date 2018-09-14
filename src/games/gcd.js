@@ -7,6 +7,10 @@ const evenQuestion = () => {
 
 const gcd = (num1, num2) => {
   const numDividers = (num, n, divider) => {
+    if (n === 1) {
+      divider.push(n);
+      return divider;
+    }
     if (n < 1) return divider;
     if (num % n === 0) divider.push(n);
     return numDividers(num, (n - 1), divider);
@@ -19,7 +23,8 @@ const gcd = (num1, num2) => {
 
 const evenRealAnsver = (string) => {
   const arr = string.split(' ');
-  return gcd(arr[0], arr[1]);
+  console.log(arr);
+  return gcd(+arr[0], +arr[1]);
 };
 
 const startGame = () => brainGeneral('Find the greatest common divisor of given numbers.', 3, evenQuestion, evenRealAnsver);
