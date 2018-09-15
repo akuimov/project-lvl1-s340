@@ -1,9 +1,9 @@
 import brainGeneral from '..';
 
-const question = () => Math.floor(Math.random() * (100 - 1) + 1);
+const randomNum = () => Math.floor(Math.random() * (100 - 1) + 1);
 
 const realAnswer = () => {
-  const number = question();
+  const number = randomNum();
   const rez = number % 2 === 0 ? 'yes' : 'no';
   return `${number}|${rez}`;
 };
