@@ -7,14 +7,14 @@ const prime = (n) => {
   if (n === 1) return false;
 
   for (let i = 2; i * i <= n; i++) {
-    if (n % i === 0) return 'no';
+    if (n % i === 0) return false;
   }
-  return 'yes';
+  return true;
 };
 
 const realAnswer = () => {
   const number = randomNum();
-  const rez = prime(number);
+  const rez = prime(number) ? 'yes' : 'no';
   return `${number}|${rez}`;
 };
 
