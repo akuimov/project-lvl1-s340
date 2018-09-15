@@ -1,31 +1,18 @@
 import brainGeneral from '..';
 
-const evenQuestion = () => {
-  const randommNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
-  return `${randommNum(1, 10)} ${randommNum(1, 10)}`;
+const randomNum = () => Math.floor(Math.random() * (10 - 1) + 1);
+
+const gcd = (num1, num2) => (num1 !== 0 ? gcd(num2 % num1, num1) : num2);
+
+const realAnsver = () => {
+  const number1 = randomNum();
+  const number2 = randomNum();
+  console.log(number1);
+  console.log(number2);
+  const rez = gcd(number1, number2);
+  return `${number1} ${number2}|${rez}`;
 };
 
-const gcd = (num1, num2) => {
-  const numDividers = (num, n, divider) => {
-    if (n === 1) {
-      divider.push(n);
-      return divider;
-    }
-    if (n < 1) return divider;
-    if (num % n === 0) divider.push(n);
-    return numDividers(num, (n - 1), divider);
-  };
-  const num1Dividers = numDividers(num1, num1, []);
-  const num2Dividers = numDividers(num2, num2, []);
-  const generalDividers = num1Dividers.filter(x => num2Dividers.includes(x));
-  return `${Math.max(...generalDividers)}`;
-};
-
-const evenRealAnsver = (string) => {
-  const arr = string.split(' ');
-  return gcd(+arr[0], +arr[1]);
-};
-
-const startGame = () => brainGeneral('Find the greatest common divisor of given numbers.', 3, evenQuestion, evenRealAnsver);
+const startGame = () => brainGeneral('Find the greatest common divisor of given numbers.', realAnsver);
 
 export default startGame;

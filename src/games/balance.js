@@ -1,6 +1,6 @@
 import brainGeneral from '..';
 
-const evenQuestion = (max = 1000, min = 100) => Math.floor(Math.random() * (max - min) + min);
+const question = (max = 1000, min = 100) => Math.floor(Math.random() * (max - min) + min);
 
 const balance = (num) => {
   const array = String(num).split('').map(Number);
@@ -23,8 +23,11 @@ const balance = (num) => {
   return String(num);
 };
 
-const evenRealAnsver = num => balance(num);
+const realAnsver = () => {
+  const num = question();
+  return `${num}|${balance(num)}`;
+};
 
-const startGame = () => brainGeneral('Balance the given number.', 3, evenQuestion, evenRealAnsver);
+const startGame = () => brainGeneral('Balance the given number.', realAnsver);
 
 export default startGame;

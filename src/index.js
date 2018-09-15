@@ -10,14 +10,14 @@ const welcome = (question = '') => {
 
 // const randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-const even = (score, user, questionArg, realAnswerArg) => {
+const even = (score, user, fn) => {
   if (score < 1) {
     console.log('Correct!');
     return console.log(`Congratulations, ${user}!`);
   }
-
-  const question = questionArg();
-  const realAnswer = realAnswerArg(question);
+  const func = fn().split('|');
+  const question = func[0];
+  const realAnswer = func[1];
   console.log(`Question: ${question}`);
   const ansverUser = readlineSync.question('Your answer: ');
 
@@ -26,15 +26,15 @@ const even = (score, user, questionArg, realAnswerArg) => {
     return console.log(`Let's try again, ${user}!`);
   }
   const newScore = score - 1;
-  return even(newScore, user, questionArg, realAnswerArg);
+  return even(newScore, user, fn);
 };
 
-const brainGeneral = (description, score, question, realAnswer) => {
-  if (score === undefined) {
+const brainGeneral = (description, fn) => {
+  if (fn === undefined) {
     return welcome(description);
   }
   const user = welcome(description);
-  return even(score, user, question, realAnswer);
+  return even(3, user, fn);
 };
 
 export default brainGeneral;

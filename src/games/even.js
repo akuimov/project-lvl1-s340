@@ -1,9 +1,13 @@
 import brainGeneral from '..';
 
-const evenQuestion = () => Math.floor(Math.random() * (100 - 1) + 1);
+const question = () => Math.floor(Math.random() * (100 - 1) + 1);
 
-const evenRealAnsver = number => (number % 2 === 0 ? 'yes' : 'no');
+const realAnswer = () => {
+  const number = question();
+  const rez = number % 2 === 0 ? 'yes' : 'no';
+  return `${number}|${rez}`;
+};
 
-const startGame = () => brainGeneral('Answer "yes" if number even otherwise answer "no".', 3, evenQuestion, evenRealAnsver);
+const startGame = () => brainGeneral('Answer "yes" if number even otherwise answer "no".', realAnswer);
 
 export default startGame;
