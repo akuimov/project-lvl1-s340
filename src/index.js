@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { car, cdr } from 'hexlet-pairs';
 
 const welcome = (question = '') => {
   console.log('Welcome to the Brain Games!');
@@ -10,23 +11,23 @@ const welcome = (question = '') => {
 
 // const randomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-const even = (score, user, fn) => {
+const logicGame = (score, user, fn) => {
   if (score < 1) {
     console.log('Correct!');
     return console.log(`Congratulations, ${user}!`);
   }
-  const func = fn().split('|');
-  const question = func[0];
-  const realAnswer = func[1];
+  const questionAndAnswer = fn();
+  const question = car(questionAndAnswer);
+  const rightAnswer = cdr(questionAndAnswer);
   console.log(`Question: ${question}`);
-  const ansverUser = readlineSync.question('Your answer: ');
+  const answerUser = readlineSync.question('Your answer: ');
 
-  if (ansverUser !== realAnswer) {
-    console.log(`${ansverUser} is wrong answer ;(. Correct answer was ${realAnswer}.`);
+  if (answerUser !== rightAnswer) {
+    console.log(`${answerUser} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
     return console.log(`Let's try again, ${user}!`);
   }
   const newScore = score - 1;
-  return even(newScore, user, fn);
+  return logicGame(newScore, user, fn);
 };
 
 const brainGeneral = (description, fn) => {
@@ -34,7 +35,7 @@ const brainGeneral = (description, fn) => {
     return welcome(description);
   }
   const user = welcome(description);
-  return even(3, user, fn);
+  return logicGame(3, user, fn);
 };
 
 export default brainGeneral;

@@ -1,4 +1,5 @@
 import brainGeneral from '..';
+import { cons } from 'hexlet-pairs';
 
 const randomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
@@ -9,16 +10,16 @@ const progression = (num, step, progress) => {
   return progression(newProgress, step, progress);
 };
 
-const realAnsver = () => {
+const questionAndAnswer = () => {
   const num = randomNum(1, 10);
   const step = randomNum(1, 10);
   const rezultIndex = randomNum(0, 9);
   const progress = progression(num, step, []);
   const answer = progress.slice();
   answer[rezultIndex] = '..';
-  return `${answer.join(' ')}|${progress[rezultIndex]}`;
+  return cons(answer.join(' '), `${progress[rezultIndex]}`);
 };
 
-const startGame = () => brainGeneral('What number is missing in this progression?', realAnsver);
+const startGame = () => brainGeneral('What number is missing in this progression?', questionAndAnswer);
 
 export default startGame;

@@ -1,4 +1,5 @@
 import brainGeneral from '..';
+import { cons } from 'hexlet-pairs';
 
 const question = (max = 1000, min = 100) => Math.floor(Math.random() * (max - min) + min);
 
@@ -23,11 +24,11 @@ const balance = (num) => {
   return String(num);
 };
 
-const realAnsver = () => {
+const questionAndAnswer = () => {
   const num = question();
-  return `${num}|${balance(num)}`;
+  return cons(num, balance(num));
 };
 
-const startGame = () => brainGeneral('Balance the given number.', realAnsver);
+const startGame = () => brainGeneral('Balance the given number.', questionAndAnswer);
 
 export default startGame;
