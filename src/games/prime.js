@@ -4,7 +4,7 @@ import { cons } from 'hexlet-pairs';
 const randomNum = () => Math.floor(Math.random() * (10 - 1) + 1);
 
 const prime = (n) => {
-  if (n < 2) return true;
+  if (n <= 3) return true;
   const iter = (num, i) => {
     if (i === 1) return true;
     return n % i === 0 ? false : iter(n, i - 1);
